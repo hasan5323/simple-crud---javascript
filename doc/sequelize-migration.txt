@@ -1,0 +1,25 @@
+template
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+npx sequelize-cli seed:generate --name demo-user
+npx sequelize-cli migration:generate --name migration-skeleton
+
+run
+migration:
+npx sequelize-cli model:generate --name Profile --attributes firstName:string,lastName:string,email:string,address:string
+npx sequelize-cli model:generate --name User --attributes username:string,password:string,role:string,healthcaretatus:boolean
+npx sequelize-cli model:generate --name Job  --attributes clientName:string,isPaid:boolean,isDone:boolean
+npx sequelize-cli model:generate --name JobItem --attributes status:boolean
+npx sequelize-cli model:generate --name Item --attributes categoryName:string,bill:integer,isHuge:boolean,isLiquid:boolean
+skeleton for FK:
+npx sequelize-cli migration:generate --name migration-skeleton-add-ProfileId-toUser
+npx sequelize-cli migration:generate --name migration-skeleton-add-UserId-to-Job
+npx sequelize-cli migration:generate --name migration-skeleton-add-ItemId-to-JobItem
+npx sequelize-cli migration:generate --name migration-skeleton-add-JobId-to-JobItem
+
+seeding:
+npx sequelize-cli seed:generate --name seed-Profile
+npx sequelize-cli seed:generate --name seed-User
+npx sequelize-cli seed:generate --name seed-Job
+npx sequelize-cli seed:generate --name seed-JobItem
+npx sequelize-cli seed:generate --name seed-Item
+
